@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <!-- 引入vuetify icon -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.2.95/css/materialdesignicons.min.css" rel="stylesheet"> -->
+  <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css" rel="stylesheet">
+
+  <!-- 使用CDN加速的CSS文件，配置在vue.config.js下 -->
+  <% for (var i in htmlWebpackPlugin.options.cdn&&htmlWebpackPlugin.options.cdn.css) { %>
+  <link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="preload" as="style">
+  <link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="stylesheet">
+  <% } %>
+  <title>PMKB</title>
+</head>
+
+<body>
+  <noscript>
+    <strong>请使用谷歌浏览器打开</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- 使用CDN加速的JS文件，配置在vue.config.js下 -->
+  <% for (var i in htmlWebpackPlugin.options.cdn&&htmlWebpackPlugin.options.cdn.js) { %>
+  <script src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
+  <% } %>
+  <!--  lodash-->
+  <script src="https://cdn.bootcss.com/lodash.js/4.17.15/lodash.core.min.js"></script>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
