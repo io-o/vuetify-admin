@@ -9,7 +9,7 @@
                 <div class="layout column align-center">
                   <!-- <img src="/static/m.png" alt="Vue Material Admin" width="120" height="120" > -->
                   <h1 class="flex my-4 primary--text">
-                    PMKB
+                    OJBK
                   </h1>
                 </div>
                 <v-form ref="loginForm">
@@ -53,8 +53,8 @@ export default {
     loading: false,
     show: false,
     model: {
-      username: 'chejun@gloriousmed.com',
-      password: 'qaz12345'
+      username: '',
+      password: ''
     },
     rules: {
       required: value => !!value || '请输入',

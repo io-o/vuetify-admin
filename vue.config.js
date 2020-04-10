@@ -9,11 +9,11 @@ module.exports = {
   // devServer: {
   //   proxy: {
   //     '/api': {
-  //       target: 'http://47.103.66.43:8003/precision-medicine-knowledge-base',
+  //       target: 'http://1.123.44.43:8003/precision-medicine-knowledge-base',
   //       changeOrigin: true
   //     },
   //     '/login': {
-  //       target: 'http://47.103.66.43:8003/precision-medicine-knowledge-base',
+  //       target: 'http://1.123.66.43:8003/precision-medicine-knowledge-base',
   //       changeOrigin: true
   //     }
   //   }
@@ -40,31 +40,31 @@ module.exports = {
 
     if (process.env.NODE_ENV === 'production') {
       // #region 图片压缩
-      // config.module
-      //   .rule('images')
-      //   .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
-      //   .use('img-loader')
-      //   .loader('img-loader').options({
-      //     plugins: [
-      //       require('imagemin-jpegtran')(),
-      //       require('imagemin-pngquant')({
-      //         quality: [0.75, 0.85]
-      //       })
-      //     ]
-      //   })
+      config.module
+        .rule('images')
+        .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
+        .use('img-loader')
+        .loader('img-loader').options({
+          plugins: [
+            require('imagemin-jpegtran')(),
+            require('imagemin-pngquant')({
+              quality: [0.75, 0.85]
+            })
+          ]
+        })
 
       // #region 启用GZip压缩 需要后端支持
-      // config
-      //   .plugin('compression')
-      //   .use(CompressionPlugin, {
-      //     asset: '[path].gz[query]',
-      //     algorithm: 'gzip',
-      //     test: new RegExp('\\.(' + ['js', 'css'].join('|') + ')$'),
-      //     threshold: 10240,
-      //     minRatio: 0.8,
-      //     cache: true
-      //   })
-      //   .tap(args => { })
+      config
+        .plugin('compression')
+        .use(CompressionPlugin, {
+          asset: '[path].gz[query]',
+          algorithm: 'gzip',
+          test: new RegExp('\\.(' + ['js', 'css'].join('|') + ')$'),
+          threshold: 10240,
+          minRatio: 0.8,
+          cache: true
+        })
+        .tap(args => { })
 
       // #region 忽略生成环境打包的文件 使用CDN引入依赖，减少打包体积
       // 注意后面的名称对应的是npm包名称

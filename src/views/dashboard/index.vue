@@ -73,8 +73,8 @@ export default {
   }),
 
   created() {
-    this.initialize()
-    this.handleChange()
+    // this.initialize()
+    // this.handleChange()
   },
 
   methods: {
